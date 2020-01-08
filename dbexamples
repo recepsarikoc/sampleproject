@@ -1,0 +1,35 @@
+import sqlite3
+
+print(sqlite3.version)
+connectdb=sqlite3.connect('database.db')
+
+if(connectdb):
+    print('Baglanti Başarılı!')
+else:
+    print('Bağlantı Başarısız!')
+
+veritabani=connectdb.cursor()
+
+"""
+veritabani.execute('''
+CREATE TABLE ogrenciler(
+ogrenci_id INTEGER PRIMARY KEY,
+ogrenci_no INTEGER NOT NULL ,
+ogrenci_adi VARCHAR(50),
+ogrenci_soyadi VARCHAR(50)
+)
+''')
+
+
+veritabani.execute('''INSERT INTO 
+ogrenciler(ogrenci_no,ogrenci_adi,ogrenci_soyadi) 
+VALUES (1,'sami','donmez')
+''')
+
+connectdb.commit()
+connectdb.close()
+
+"""
+
+oku=veritabani.execute('SELECT * FROM ogrenciler')
+print(oku.fetchall())
