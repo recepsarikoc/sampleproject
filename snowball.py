@@ -54,3 +54,4 @@ for i in range(0,7):
     queue.append(e[i])
 
     print(e)
+    print('first commit')
