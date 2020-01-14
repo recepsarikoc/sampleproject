@@ -1,11 +1,8 @@
 from datetime import datetime
-s1 = "20200103"
-s2 = "20200102"
-s_datetime1 = datetime.strptime(s1, '%Y%m%d')
-s_datetime2 = datetime.strptime(s2, '%Y%m%d')
-
-print(s_datetime1)
-a = [s_datetime1,s_datetime2,s_datetime1,s_datetime2,s_datetime1,s_datetime2]
+s = "20200103"
+s_datetime = datetime.strptime(s, '%Y%m%d')
+print(s_datetime)
+a = [s_datetime,s_datetime,s_datetime,s_datetime,s_datetime,s_datetime]
 b = [400, 401, 402, 403, 404, 405]
 c = [400, 401, 402, 411, 412]
 d = [['kadıköy', 'maltepe', 'ataşehir'], ['kadıköy', 'üsküdar', 'beykoz'],
@@ -13,46 +10,35 @@ d = [['kadıköy', 'maltepe', 'ataşehir'], ['kadıköy', 'üsküdar', 'beykoz']
      ['kadıköy', 'kartal', 'pendik']]
 # print(d[5][2])
 e = [0, 0, 0, 0, 0, 0]
-for i in range(0,7):
+f = datetime.now()
+print(f)
+print(type(f))
+i = 0
+j = 0
+queue = []
+e[i] = f - a[i]
+g = e[i].days + 10
+print(g)
 
-    f = datetime.now()
-    print(f)
-    print(type(f))
-    queue = []
-    e[i] = f - a[i]
-    g = e[i].days + 10
-    print(g)
+#hizmet talep edilen bölge
+k = 'kadıköy'
+print(type(e[i]))
 
-    # hizmet talep edilen bölge
-    k = 'kadıköy'
-    print(type(e[i]))
+#timedelta olduğu için days kullanılıyor
+print(e[i].days)
 
-    # timedelta olduğu için days kullanılıyor
-    print(e[i].days)
+#datetime olduğu için day kullanılıyor
+print(s_datetime.day)
 
-    # datetime olduğu için day kullanılıyor
-    print(s_datetime1.day)
+if b[i] in c:
+    e[i] = e[i].days + 10
 
-    if b[i] in c:
-        e[i] = e[i].days + 10
-    m = 0
-    n = 0
-    print(len(d))
+if j < 3:
 
-    for m in range(0, 6):
-        for n in range(0, 3):
-            if k == d[m][n]:
-                print(True)
-                e[i] = e[i] + 5
-            else:
-                print(False)
+    if k == d[m][n]:
+        e[i] = e[i] + 5
+    j = j+1
 
-    # while j < 3:
-    # if k in d:
-    # print(True)
+queue.append(e[i])
 
-    queue.append(e[i])
-
-    print(e)
-    print('first commit')
-    print('second commit')
+print(e)
